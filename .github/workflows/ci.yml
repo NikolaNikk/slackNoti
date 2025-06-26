@@ -19,7 +19,7 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json' \
           --data "{
-          \"text\": \"✅ *CI Success*\n<https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjFrM2pxcWo3OG95MGxoZzZ0bThlaWMxMDB5YzV4YnhkOG9vYWlyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ECnKFXW8OmJy7UQEet/giphy.gif|Click for a celebratory gif!>\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"
+          \"text\": \"✅ *CI Success*\n<https://tenor.com/puOw6hQMapO.gif|Click for a celebratory gif!>\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"
           }" \
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
@@ -28,6 +28,6 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json' \
           --data "{
-          \"text\": \"❌ *CI Failed*\n<https://tenor.com/puOw6hQMapO.gif|Build failed. Time to investigate.>\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"
+          \"text\": \"❌ *CI Failed*\n<https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjFrM2pxcWo3OG95MGxoZzZ0bThlaWMxMDB5YzV4YnhkOG9vYWlyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ECnKFXW8OmJy7UQEet/giphy.gif|Build failed. Time to investigate.>\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"
           }" \
           ${{ secrets.SLACK_WEBHOOK_URL }}
