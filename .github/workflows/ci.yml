@@ -17,12 +17,12 @@ jobs:
         if: success()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"✅ Success!"}' \
+          --data "{\"text\":\"✅ *CI Success*\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"}" \
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Notify Slack on failure
         if: failure()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"❌ Failure!"}' \
+          --data "{\"text\":\"❌ *CI Failed*\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"}" \
           ${{ secrets.SLACK_WEBHOOK_URL }}
