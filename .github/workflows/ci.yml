@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Simulate failure
-        run: exit 1  # This will fail the job
+        #run: exit 1  # This will fail the job
 
       - name: Notify Slack on success
         if: success()
