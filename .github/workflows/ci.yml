@@ -12,7 +12,7 @@ jobs:
 
       - name: Simulate failure
         #run: echo "BUILDING..." 
-        run: exit 1  # This will fail the job
+        run: exit 1  # This will fail th
 
       - name: Notify Slack on success
         if: success()
