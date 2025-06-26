@@ -1,30 +1,28 @@
-name: CI Workflow with Slack Notification
+name: Test Slack Notification
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Simulate build step
-        run: echo "Running build..."
+      - name: Simulate failure
+        run: exit 1  # This will fail the job
 
-      # Notify Slack on success
       - name: Notify Slack on success
         if: success()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\":\"✅ *CI Success*\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"}" \
+          --data '{"text":"✅ Success!"}' \
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # Notify Slack on failure
       - name: Notify Slack on failure
         if: failure()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\":\"❌ *CI Failed*\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"}" \
+          --data '{"text":"❌ Failure!"}' \
           ${{ secrets.SLACK_WEBHOOK_URL }}
