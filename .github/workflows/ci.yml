@@ -19,7 +19,7 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json' \
           --data "{
-          \"text\": \"✅ *CI Success*\n<https://tenor.com/puOw6hQMapO.gif|Click for a celebratory gif!>\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"
+          \"text\": \"✅ *CI Success*\n<https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExajQyMnB5eG15ZzNhNXV3MzBncTlveGVhZXM5ajZjbWl6Nm5wYTVrbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/UbN5sjsY2OLEgetF2e/giphy.gif|Click for a celebratory gif!>\nRepository: \`${{ github.repository }}\`\nBranch: \`${{ github.ref_name }}\`\nCommit: \`${{ github.sha }}\`\nActor: \`${{ github.actor }}\`\nWorkflow: \`${{ github.workflow }}\`\"
           }" \
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
